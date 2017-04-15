@@ -4,6 +4,7 @@ class Comments extends React.Component {
   constructor() {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderComment = this.renderComment.bind(this);
   }
 
   renderComment(comment, i) {
@@ -12,7 +13,8 @@ class Comments extends React.Component {
         <p>
           <strong>{comment.user}</strong>
           {comment.text}
-          <button className='remove-comment'>&times;</button>
+          <button className='remove-comment'
+            onClick={(e) => this.props.removeComment(this.props.params.postId, i)}>&times;</button>
         </p>
       </div>
     )
